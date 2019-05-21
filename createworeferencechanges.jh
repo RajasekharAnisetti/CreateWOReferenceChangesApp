@@ -1,0 +1,55 @@
+entity WoWorkOrder {
+  
+  customsBrokerName String maxlength(255) 
+  customsContactName String maxlength(255) 
+  customsCurrency String maxlength(255) 
+  customsPhoneNumber String maxlength(255)    
+  customsValue Double   
+  fromAirportCode String maxlength(255)   
+  jobContentDescr String maxlength(255) 
+  shipQuantity Integer max(11)
+  jobOriginalCost Integer max(11) 
+  quotedAmount String maxlength(255) 
+  assignTo String maxlength(255)  
+  dateCreated ZonedDateTime
+  jobNumber String maxlength(255)  
+  jobCustomer String maxlength(255)  
+  jobDeadlineTime Long
+  jobTimeZone Long
+  shippingDate LocalDate  
+  jobDeadlineDate LocalDate
+  shippingTime Long  
+  isStorage Boolean
+  isPickPack Boolean  
+  shipTotalWeight String maxlength(255)  
+  woRequestType Integer max(11)  
+}
+
+entity LocationType {
+  name String maxlength(255)
+}
+
+entity WoSalesAgent {
+  agentName String maxlength(255)
+  promoCode String maxlength(255)
+}
+
+entity InsuranceType {
+  name String maxlength(255)
+}
+relationship ManyToOne {
+   WoWorkOrder{fromLocation} to LocationType
+   WoWorkOrder{ToLocation} to LocationType
+   WoWorkOrder to WoSalesAgent
+   WoWorkOrder to InsuranceType 
+}
+
+// Set pagination options
+//paginate JobHistory, Employee with infinite-scroll
+//paginate Job with pagination
+dto * with mapstruct
+// Set service options to all except few
+service all with serviceImpl
+
+
+

@@ -1,0 +1,30 @@
+{
+    "name": "InsuranceType",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "woWorkOrder",
+            "otherEntityRelationshipName": "insuranceType",
+            "relationshipName": "woWorkOrder"
+        }
+    ],
+    "changelogDate": "20190521150341",
+    "entityTableName": "insurance_type",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

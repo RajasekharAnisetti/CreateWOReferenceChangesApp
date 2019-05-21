@@ -1,0 +1,38 @@
+{
+    "name": "WoSalesAgent",
+    "fields": [
+        {
+            "fieldName": "agentName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        },
+        {
+            "fieldName": "promoCode",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "woWorkOrder",
+            "otherEntityRelationshipName": "woSalesAgent",
+            "relationshipName": "woWorkOrder"
+        }
+    ],
+    "changelogDate": "20190521150340",
+    "entityTableName": "wo_sales_agent",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
